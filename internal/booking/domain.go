@@ -1,5 +1,7 @@
 package booking
 
+import "errors"
+
 // Booking represents a confirmed seat reservation.
 type Booking struct {
 	ID      string
@@ -10,6 +12,10 @@ type Booking struct {
 }
 
 type BookingStore interface {
-	Book(b Booking) (Booking, error)
+	Book(b Booking) error
 	ListBookings(movieID string) []Booking
 }
+
+var (
+	ErrSeatAlreadyExists = errors.New("seat already exists")
+)
