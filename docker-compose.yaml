@@ -1,5 +1,4 @@
 services:
-  # 1. ASIL REDIS VERİTABANI (Bunu silmiştik, geri geldi)
   redis:
     container_name: redis
     image: redis:7-alpine
@@ -7,7 +6,6 @@ services:
     ports:
       - "6379:6379"
 
-  # 2. REDIS ARAYÜZÜ
   redis-commander:
     container_name: redis-commander
     hostname: redis-commander
@@ -20,7 +18,6 @@ services:
     depends_on:
       - redis
 
-  # 3. POSTGRESQL VERİTABANI
   postgres:
     container_name: postgres
     image: postgres:16-alpine
