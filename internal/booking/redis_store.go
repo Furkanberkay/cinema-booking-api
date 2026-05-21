@@ -25,10 +25,12 @@ func sessionKey(id string) string {
 }
 
 func (s *RedisStore) Book(b Booking) error {
-	_, err := s.hold(b)
+	booking, err := s.hold(b)
 	if err != nil {
 		return err
 	}
+
+	s
 	return nil
 }
 func (s *RedisStore) ListBookings(movieID string) []Booking {
